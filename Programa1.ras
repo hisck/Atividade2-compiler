@@ -1,0 +1,14 @@
+program imprime_impar;
+
+var n, aux: integer;
+
+begin
+    read(n);
+    while n > 0 do
+        begin
+            aux := n div 2;
+            if (not(aux * 2 = n)) then
+                write(n);
+            n := n - 1
+        end
+end

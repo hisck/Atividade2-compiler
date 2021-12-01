@@ -1,0 +1,42 @@
+INPP
+AMEM 3          //VAR lado1, lado2, altura
+DSVS R00
+
+R01: ENPR 1
+AMEM 1
+CRVL 1, -6
+CRVL 1, -5
+MULT
+CRVL 1, -4
+MULT
+ARMZ 1, 0       //volume := lado1 * lado2 * altura;
+CRCT 0
+CMMMA           //if(volume > 0) then
+DSVF R02
+CRVL 1, 0
+IMPR            //write(volume);
+CRCT 1
+IMPR            //write(true);
+DSVS R03
+
+R02: NADA
+CRCT 0
+IMPR            //write(false);
+DSVS R03
+
+R03: NADA
+DMEM 1
+RTPR 1, 3
+
+R00: NADA
+LEIT
+ARMZ 0,0  //READ(lado1);
+LEIT
+ARMZ 0,1  //READ(lado2);
+LEIT
+ARMZ 0,2  //READ(altura);
+CRVL 0,0
+CRVL 0,1
+CRVL 0,2
+CHPR R01, 0
+PARA

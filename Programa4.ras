@@ -1,0 +1,16 @@
+program factorial;
+    var n, x: integer;
+
+    function factorial(n: integer): integer;
+    begin
+        if(n = 0) then 
+            factorial := 1
+        else
+            factorial := n * factorial(n-1);
+    end;
+
+begin
+    read(n);
+    x := factorial(n);
+    write(x);
+end
