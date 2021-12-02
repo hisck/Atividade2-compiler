@@ -1,0 +1,39 @@
+INPP                                                    program factorial;
+AMEM 2                                                  var n, x: integer;
+DSVS R00
+
+R01: ENPR 1                                             function factorial(n: integer): integer;
+AMEM 1                                                  begin
+CRVL 1, -4
+CRCT 0
+CMIG                                                    if(n = 0) then 
+DSVF R02
+CRCT 1
+ARMZ 1, -5                                              factorial := 1
+DSVS R03
+
+R02: NADA                                               else
+CRVL 1, -4
+CRVL 1, -4
+CRCT 1
+SUBT
+CHPR R01, 1
+MUL
+ARMZ 1, -5                                              factorial := n * factorial(n-1);
+DSVS R03
+
+R03: NADA
+DMEM 1
+RTPR 1, 1                                               end
+
+R00: NADA                                               begin
+LEIT
+ARMZ 0,0                                                read(n);
+AMEM 1
+CRVL 0,0
+CHPR R01, 0
+ARMZ 0, 2                                               x := factorial(n);       
+CRVL 0, 2
+IMPR                                                    write(x)
+DMEM 3
+PARA                                                    end

@@ -1,0 +1,36 @@
+INPP                                                    program minimo;
+AMEM 3                                                  var a,b,x : integer;;
+DSVS R00
+
+R01: ENPR 1                                             function minimo(a: integer, b: integer): integer; 
+AMEM 1                                                  begin
+CRVL 1, -5
+CRVL 1, -4
+CMME                                                    if ( a < b) then
+DSVF R02
+CRVL 1, -5
+ARMZ 1, -6                                              minimo := a;
+DSVS R03
+
+R02: NADA                                               else
+CRVL 1, -4
+ARMZ 1, -6                                              minimo := b;
+DSVS R03
+
+R03: NADA
+RTPR 1, 1                                               end
+
+R00: NADA                                               begin
+LEIT
+ARMZ 0, 0                                               read(a);
+LEIT
+ARMZ 0, 1                                               read(b);
+AMEM 1
+CRVL 0, 0
+CRVL 0, 1
+CHPR R01, 0 
+ARMZ 0, 2                                               x := minimo(a, b);     
+CRVL 0, 2
+IMPR                                                    write(x)
+DMEM 4
+PARA                                                    end
