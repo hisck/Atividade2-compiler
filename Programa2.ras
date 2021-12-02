@@ -7,7 +7,7 @@ program procVolumeParalelepipedoRetangular;
         volume := lado1 * lado2 * altura;
         if(volume > 0) then
         begin
-            write(volume);
+            writeln(volume);
             write(true);
         end
         else

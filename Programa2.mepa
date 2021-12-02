@@ -14,7 +14,7 @@ CRCT 0
 CMMMA           //if(volume > 0) then
 DSVF R02
 CRVL 1, 0
-IMPR            //write(volume);
+IMPR            //writeln(volume);
 CRCT 1
 IMPR            //write(true);
 DSVS R03

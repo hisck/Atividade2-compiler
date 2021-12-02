@@ -19,7 +19,7 @@ CRVL 0,0
 CMIG                                                    if (not(aux * 2 = n)) then
 DSVF R02
 CRVL 0,0                                                
-IMPR                                                    write(n);
+IMPR                                                    writeln(n);
 DSVS R02                                                 
 
 R02: NADA  
@@ -31,6 +31,6 @@ DSVS R00
 
 R01: NADA                                               end
 DMEM 2
-PARA                                                    end
+PARA                                                    end.
 
 

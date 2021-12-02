@@ -3,17 +3,18 @@ AMEM 3          var a,b,x : integer;;
 DSVS R00
 
 R01: ENPR 1
+AMEM 1
 CRVL 1, -5
 CRVL 1, -4
 CMME            //if ( a < b) then
 DSVF R02
 CRVL 1, -5
-IMPR            //write(a)
+ARMZ 1, -6      //minimo := a;
 DSVS R03
 
 R02: NADA
 CRVL 1, -4
-IMPR            //write(b)
+ARMZ 1, -6      //minimo := b;
 DSVS R03
 
 R03: NADA
@@ -21,11 +22,11 @@ RTPR 1, 1       //END
 
 R00: NADA
 LEIT
-ARMZ 0,0        //read(a);
+ARMZ 0, 0        //read(a);
 LEIT
-ARMZ 0,1        //read(b);
+ARMZ 0, 1        //read(b);
 AMEM 1
-CRVL 0,0
+CRVL 0, 0
 CRVL 0, 1
 CHPR R01, 0 
 ARMZ 0, 2       //x := minimo(a, b);     

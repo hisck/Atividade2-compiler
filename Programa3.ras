@@ -1,12 +1,16 @@
 program minimo;
     var a,b,x : integer;
     
-    function minimo(a: integer, b: integer): integer;
+    function minimo(a, b: integer): integer;
     begin
         if ( a < b) then
-            write(a)
+            begin
+                minimo := a;
+            end
         else
-            write(b)
+            begin
+                minimo := b;
+            end;
     end;
 
 begin
@@ -14,4 +18,4 @@ begin
     read(b);
     x := minimo(a, b);
     write(x);
-end
+end.
