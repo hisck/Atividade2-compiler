@@ -1,7 +1,7 @@
 program procVolumeParalelepipedoRetangular;
     var lado1, lado2, altura: integer;
 
-    procedure volume(lado1: integer, lado2: integer, altura: integer);
+    procedure volume(lado1, lado2, altura: integer);
     var volume: integer;
     begin
         volume := lado1 * lado2 * altura;
@@ -11,7 +11,9 @@ program procVolumeParalelepipedoRetangular;
             write(true);
         end
         else
+        begin
             write(false);
+        end;
     end;
 
 begin
