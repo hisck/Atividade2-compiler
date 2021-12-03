@@ -1,43 +1,46 @@
-INPP                                                    program procVolumeParalelepipedoRetangular;
-AMEM 3                                                  var lado1, lado2, altura: integer;
-DSVS R00
-
-R01: ENPR 1                                             procedure volume(lado1: integer, lado2: integer, altura: integer);
-AMEM 1                                                  var volume: integer;
-CRVL 1, -6                                              begin
-CRVL 1, -5
-MULT
-CRVL 1, -4
-MULT
-ARMZ 1, 0                                               volume := lado1 * lado2 * altura;
-CRCT 0
-CMMMA                                                   if(volume > 0) then
-DSVF R02
-CRVL 1, 0
-IMPR                                                    write(volume);
-CRCT 1
-IMPR                                                    write(true);
-DSVS R03
-
-R02: NADA                                               else
-CRCT 0
-IMPR                                                    write(false);
-DSVS R03
-
+     INPP                                                   program procVolumeParalelepipedoRetangular;
+     AMEM 3                                                 var lado1, lado2, altura: integer;
+     DSVS R00
+R01: ENPR 1                                                 procedure volume(lado1, lado2, altura: integer);
+     AMEM 1                                                 var volume: integer;
+                                                            begin
+     CRVL 1, -6
+     CRVL 1, -5
+     MULT
+     CRVL 1, -4
+     MULT
+     ARMZ 1, 0                                                  volume := lado1 * lado2 * altura;
+     CRVL 1, 0       
+     CRCT 0
+     CMMA                                                       if(volume > 0) then
+     DSVF R02
+                                                                begin
+     CRVL 1, 0
+     IMPR                                                           writeln(volume);                                    
+     CRCT 1
+     IMPR                                                           write(true);
+     DSVS R03
+                                                                end
+R02: NADA                                                       else
+                                                                begin
+     CRCT 0
+     IMPR                                                           write(false);   
+     DSVS R03               
+                                                                end;
 R03: NADA
-DMEM 1
-RTPR 1, 3                                               end;
-
-R00: NADA                                               begin
-LEIT
-ARMZ 0,0                                                read(lado1);
-LEIT
-ARMZ 0,1                                                read(lado2);
-LEIT
-ARMZ 0,2                                                read(altura);
-CRVL 0,0
-CRVL 0,1
-CRVL 0,2
-CHPR R01, 0                                             volume(lado1, lado2, altura);
-DMEM 3
-PARA
+     DMEM 1
+     RTPR 1, 3
+                                                            end;
+R00: NADA                                                   begin
+     LEIT
+     ARMZ 0,0                                                   read(lado1);
+     LEIT
+     ARMZ 0,1                                                   read(lado2);
+     LEIT
+     ARMZ 0,2                                                   read(altura);
+     CRVL 0,0
+     CRVL 0,1
+     CRVL 0,2
+     CHPR R01, 0                                                volume(lado1, lado2, altura);
+     DMEM 3
+     PARA                                                   end

@@ -1,36 +1,37 @@
-INPP                                                    program imprime_impar; 
-AMEM 2                                                  var n, aux: integer
-LEIT                                                    begin
-ARMZ 0,0                                                read(n);
-
+     INPP                                                       program imprime_impar;                                                    
+     AMEM 2                                                     var n, aux: integer
+                                                                begin          
+     LEIT                                                    
+     ARMZ 0, 0                                                        read(n);
+     DSVS R00                                               
 R00: NADA                                               
-CRVL 0,0  
-CRCT 0
-CMMA                                                    while n > 0
-DSVF R01  
-CRVL 0,0                                                begin  
-CRCT 2
-DIV
-ARMZ 0,1                                                aux := n div 2
-CRVL 0,1
-CRCT 2
-MUL
-CRVL 0,0
-CMIG                                                    if (not(aux * 2 = n)) then
-DSVF R02
-CRVL 0,0                                                
-IMPR                                                    writeln(n);
-DSVS R02                                                 
-
-R02: NADA  
-CRVL 0,0
-CRCT 1
-SUBT
-ARMZ 0,0                                                n := n - 1
-DSVS R00
-
-R01: NADA                                               end
-DMEM 2
-PARA                                                    end.
-
-
+     CRVL 0, 0  
+     CRCT 0
+     CMMA                                                             while n > 0                                                
+     DSVF R01  
+                                                                           begin
+     CRVL 0, 0                                               
+     CRCT 2
+     DIVI
+     ARMZ 0, 1                                                                  aux := n div 2                                                
+     CRVL 0, 1
+     CRCT 2
+     MULT
+     CRVL 0, 0
+     CMIG                                                                       if (not(aux * 2 = n)) then                                                   
+     DSVF R02
+     DSVS R03
+R02: NADA
+     CRVL 0, 0                                                
+     IMPR                                                                            writeln(n);                                               
+     DSVS R03 
+R03: NADA               
+     CRVL 0, 0
+     CRCT 1
+     SUBT
+     ARMZ 0, 0                                                                  n := n - 1                                            
+     DSVS R00                                                    
+R01: NADA                                              
+                                                                      end
+     DMEM 2
+     PARA                                                       end
